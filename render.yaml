@@ -10,8 +10,8 @@ services:
     plan: free
     runtime: python
     buildCommand: "./build.sh"
-    # startCommand: "gunicorn your_project_name.asgi:application -k uvicorn.workers.UvicornWorker"
-    startCommand: "waitress-serve --listen=0.0.0.0:8000 online_shop.wsgi:application"
+    startCommand: "gunicorn online_shop.asgi:application -k uvicorn.workers.UvicornWorker"
+    # startCommand: "waitress-serve --listen=0.0.0.0:8000 online_shop.wsgi:application"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
